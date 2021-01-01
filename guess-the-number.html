@@ -1,67 +1,74 @@
 <!DOCTYPE html>
-<html> 
-<head> 
-    <meta charset="utf-8"> 
-    <title>Guess The Number</title> 
-  
-    <style> 
-        html { 
-    font-family: arial; 
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+        <head>
+            <meta charset="utf-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <title>Guess The Number</title>
+            <meta name="description" content="">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <link rel="stylesheet" href="">
+        <style> 
+            html { 
+            font-family: arial; 
+            } 
+        
+            body { 
+            width: 50%; 
+            max-width: 800px; 
+            min-width: 480px; 
+            margin: 0 auto; 
+            } 
+        </style> 
+        </head>
+        <body>
+            <!--[if lt IE 7]>
+                <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+            <![endif]-->
+        <p>Guess the number between 1 and 100</p> 
+    
+        <div class="form"> 
+            <label for="guessField">Guess the number: </label> 
+            <input type = "text" id = "guessField" class = "guessField"> 
+            <input type = "submit" value = "Submit guess" 
+                class = "guessSubmit" id = "submitguess"> 
+        </div>     
+            
+    <script type = "text/javascript"> 
+    
+        // random value generated 
+        var y = Math.floor(Math.random() * 100 + 1); 
+        
+        // counting the number of guesses 
+        // made for correct guess 
+        var guess = 1; 
+        
+        document.getElementById("submitguess").onclick = function(){ 
+        
+    // number guessed by user      
+    var x = document.getElementById("guessField").value; 
+    
+    if(x == y) 
+    {     
+        alert("Awesome!!! You guessed it in " + guess + " guess/guesses ");
+        alert("The random number was " + y);
+        alert("It took you " + guess + " attempts to guess the correct number");
     } 
-      
-        body { 
-    width: 50%; 
-    max-width: 800px; 
-    min-width: 480px; 
-    margin: 0 auto; 
+    else if(x > y) /* if guessed number is greater 
+                    than actual number*/ 
+    {     
+        guess++; 
+        alert("Oops!! Try a lower number"); 
     } 
-    </style> 
-</head> 
-  
-<body> 
-<h1>Guess The Number</h1> 
-  
-<p>Guess the number between 1 and 100</p> 
-  
-<div class="form"> 
-    <label for="guessField">Guess the number: </label> 
-    <input type = "text" id = "guessField" class = "guessField"> 
-    <input type = "submit" value = "Submit guess" 
-           class = "guessSubmit" id = "submitguess"> 
-</div> 
-  
-<script type = "text/javascript"> 
-  
-    // random value generated 
-    var y = Math.floor(Math.random() * 100 + 1); 
-      
-    // counting the number of guesses 
-    // made for correct Guess 
-    var guess = 1; 
-      
-    document.getElementById("submitguess").onclick = function(){ 
-      
-   // number guessed by user      
-   var x = document.getElementById("guessField").value; 
-  
-   if(x == y) 
-   {     
-       alert("Awesome!!! You guessed it in " + guess + " guess/guesses ");
-       alert("The random number was " + y);
-       alert("It took you " + guess + " attempts to guess the correct number");
-   } 
-   else if(x > y) /* if guessed number is greater 
-                   than actual number*/ 
-   {     
-       guess++; 
-       alert("Oops!! Try a lower number"); 
-   } 
-   else
-   { 
-       guess++; 
-       alert("Ooops!! Try a higher number") 
-   } 
-} 
-</script> 
-</body> 
-</html>    
+    else
+    { 
+        guess++; 
+        alert("Ooops!! Try a higher number") 
+    } 
+    } 
+    </script>
+        </body>
+</html>
